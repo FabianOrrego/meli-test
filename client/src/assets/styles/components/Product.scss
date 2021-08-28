@@ -1,0 +1,35 @@
+.product-item {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background-color: white;
+  width: 80%;
+  .product-item-image {
+    img {
+      width: 180px;
+      height: 180px;
+      border-radius: 4px;
+      margin: 16px;
+    }
+  }
+  .product-item-detail {
+    width: 65%;
+    .product-item-detail-amount {
+      margin-bottom: 32px;
+      span {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+    }
+    .product-item-detail-title {
+      font-size: 18px;
+    }
+  }
+  .product-item-location {
+    padding: 0 20px;
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
