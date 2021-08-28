@@ -1,8 +1,7 @@
 import React from 'react';
-import imgShipping from '../assets/static/ic_shipping.png';
+import imgShipping from '../../assets/static/ic_shipping.png';
 import { useHistory } from "react-router-dom";
-
-import '../assets/styles/components/Product.scss';
+import './Product.scss';
 
 const Product = ({ id, picture, price, title, address }) => {
   const history = useHistory();

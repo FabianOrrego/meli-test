@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { useHistory } from "react-router-dom";
-import '../assets/styles/components/Search.scss';
-import logo from '../assets/static/Logo_ML.png';
-import iconSearch from '../assets/static/ic_Search.png';
+import logo from '../../assets/static/Logo_ML.png';
+import iconSearch from '../../assets/static/ic_Search.png';
+import './Search.scss';
 
 const Search = () => {
   const [ search, setSearch ] = useState('');
