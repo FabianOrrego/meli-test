@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react';
 import ProductDetail from './ProductDetail';
 import numeral from 'numeral';
-import '../assets/styles/components/ProductDetail.scss';
+import './ProductDetail.scss';
 
 const productDetail = {
   item: {

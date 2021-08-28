@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/styles/components/Breadcrumbs.scss'
+import './Breadcrumbs.scss';
 
 const Breadcrumbs = ({ crumbsList }) => {
   let breadcrumbs = [];

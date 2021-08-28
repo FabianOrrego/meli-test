@@ -4,7 +4,7 @@ import { Router } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import Product from './Product';
-import '../assets/styles/components/Product.scss';
+import './Product.scss';
 
 const product = {
   id: 'testId',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react';
 import Breadcrumbs from './Breadcrumbs';
-import '../assets/styles/components/Breadcrumbs.scss'
+import './Breadcrumbs.scss'
 
 test('should render breadcrums component', () => {
   render(<Breadcrumbs />);

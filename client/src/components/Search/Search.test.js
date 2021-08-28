@@ -4,7 +4,7 @@ import { Router } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import Search from './Search';
-import '../assets/styles/components/Search.scss';
+import './Search.scss';
 
 test('should render search component', () => {
     render(<Search />);

@@ -1,6 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
-import '../assets/styles/components/ProductDetail.scss';
+import './ProductDetail.scss';
 
 const ProductDetail = ({ description, picture, title, price }) => (
   <section className="product-container" data-testid="product-detail-component">

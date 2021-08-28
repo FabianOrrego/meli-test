@@ -1,15 +1,15 @@
 import React from 'react';
 import useInitialSate from '../../hooks/useInitialState';
-import Search from '../../components/Search';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import ProductList from '../../components/ProductList';
-import Product from '../../components/Product';
+import Search from '../../components/Search/Search';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import ProductList from '../../components/ProductList/ProductList';
+import Product from '../../components/Product/Product';
 import { useLocation } from "react-router-dom";
 
 const Products = () => {
-  const API = 'http://localhost:3001/api/items?search=';
   const query = new URLSearchParams(useLocation().search);
-  const initialState = useInitialSate(`${API}${query.get("search")}`);
+  const API = `${process.env.REACT_APP_HOST_API}items?search=${query.get("search")}`;
+  const initialState = useInitialSate(API);
   return (
     <>
       <Search />
