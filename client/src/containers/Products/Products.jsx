@@ -4,6 +4,7 @@ import Search from '../../components/Search/Search';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import ProductList from '../../components/ProductList/ProductList';
 import Product from '../../components/Product/Product';
+import NotFoundSearch from '../../components/NotFoundSearch/NotFoundSearch';
 import { useLocation } from "react-router-dom";
 
 const Products = () => {
@@ -15,12 +16,14 @@ const Products = () => {
       <Search />
       <Breadcrumbs crumbsList={initialState.categories} />
       {
-        initialState?.items?.length > 0 &&
-          <ProductList>
-            {initialState.items.map(item => 
-            <Product key={item.id} {...item} />
-            )}
-          </ProductList>
+        initialState?.items?.length > 0 
+          ?
+            <ProductList>
+              {initialState.items.map(item => 
+              <Product key={item.id} {...item} />
+              )}
+            </ProductList>
+          : <NotFoundSearch />
       }
     </>
   );
