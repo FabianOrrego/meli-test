@@ -12,8 +12,10 @@ const Detail = () => {
   return (
     <>
       <Search />
-      <Breadcrumbs crumbsList={initialState.item.categories} />
-      <ProductDetail key={initialState.item.id} {...initialState.item}/>
+      {initialState?.item?.categories.length > 0 &&
+        <Breadcrumbs crumbsList={initialState.item.categories} />}
+      {initialState?.item &&
+        <ProductDetail key={initialState.item.id} {...initialState.item}/>}
     </>
   );
 }
