@@ -4,8 +4,8 @@ import Search from '../../components/Search';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import ProductDetail from '../../components/ProductDetail';
 
-const API = 'http://localhost:3000/api/items/MLA932320622'; 
-
+const API = 'http://localhost:3001/api/items/MLA932320622'; // TO DO cambiar lo quemado
+console.log(`variable de api ${process.env.REACT_APP_HOST_API}`);
 const initialState = {
   "author": {
       "name": "Fabian",

@@ -19,15 +19,15 @@ const Search = () => {
   }
 
   return (
-    <section className="search">
-    <form className="search-form" onSubmit={onFormSubmit}>
-      <img src={logo} alt="Logo Meli" />
-      <input id="search" onChange={onHandler} type="text" className="input-search" placeholder="Nunca dejes de buscar" />
-      <button className="button-input-search" type="submit">
-        <img src={iconSearch} alt='search button' />
-      </button>
-    </form>
-  </section>
+    <section className="search" data-testid="search">
+      <form className="search-form" onSubmit={onFormSubmit}>
+        <img src={logo} alt="Logo Meli" />
+        <input data-testid="input-search" value={search} onChange={onHandler} type="text" className="input-search" placeholder="Nunca dejes de buscar" />
+        <button data-testid="search-submit-button" className="button-input-search" type="submit">
+          <img src={iconSearch} alt='search button' />
+        </button>
+      </form>
+    </section>
   )
 }
 

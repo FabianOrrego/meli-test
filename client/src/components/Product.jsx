@@ -12,19 +12,19 @@ const Product = ({ id, picture, price, title, address }) => {
   }
 
   return (
-    <div onClick={onHandler} className="product-item">
+    <div onClick={onHandler} className="product-item" data-testid="product-item">
       <div className="product-item-image">
         <img src={picture} alt="Product" />
       </div>
       <div className="product-item-detail">
         <div className="product-item-detail-amount">
-          <span>{price.amount}</span>
+          <span data-testid="product-item-detail-amount">{price.amount}</span>
           <img src={imgShipping} alt="shipping" />
         </div>
-        <span className="product-item-detail-title">{title}</span>
+        <span data-testid="product-item-detail-title" className="product-item-detail-title">{title}</span>
       </div>
       <div className="product-item-location">
-        <span>{address}</span>
+        <span data-testid="product-item-location">{address}</span>
       </div>
     </div>
   )

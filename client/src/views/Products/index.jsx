@@ -7,7 +7,7 @@ import Product from '../../components/Product';
 import { useLocation } from "react-router-dom";
 
 const Products = () => {
-  const API = 'http://localhost:3000/api/items?search=';
+  const API = 'http://localhost:3001/api/items?search=';
   const query = new URLSearchParams(useLocation().search);
   const initialState = useInitialSate(`${API}${query.get("search")}`);
   return (
