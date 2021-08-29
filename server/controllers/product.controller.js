@@ -23,7 +23,9 @@ const getProduct = async (productId, res) => {
 const setFormatProductsList = (response) => {
   return {
     author: getAuthor(),
-    categories: getCategories((response?.filters?.find((filter) => filter?.id === 'category')).values[0].path_from_root),
+    categories: response?.filters?.length > 0 
+      ? getCategories((response?.filters?.find((filter) => filter?.id === 'category')).values[0].path_from_root)
+      : [],
     items: response.results.map(item => formatItem(item))
   }
 }
@@ -58,7 +60,7 @@ const formatItem = (item) => {
       // decimal: TO DO Not Found
     },
     picture: item.thumbnail,
-    condition: item.condition,
+    condition: item.condition === 'new' ? 'Nuevo' : 'Usado',
     free_shipping: item.shipping.free_shipping,
     address: item?.address?.state_name
   }
