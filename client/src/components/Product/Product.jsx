@@ -1,6 +1,7 @@
 import React from 'react';
 import imgShipping from '../../assets/static/ic_shipping.png';
 import { useHistory } from "react-router-dom";
+import numeral from 'numeral';
 import './Product.scss';
 
 const Product = ({ id, picture, price, title, address }) => {
@@ -17,7 +18,7 @@ const Product = ({ id, picture, price, title, address }) => {
       </div>
       <div className="product-item-detail">
         <div className="product-item-detail-amount">
-          <span data-testid="product-item-detail-amount">{price.amount}</span>
+          <span data-testid="product-item-detail-amount">{numeral(price.amount).format('$ 0,0[.]00')}</span>
           <img src={imgShipping} alt="shipping" />
         </div>
         <span data-testid="product-item-detail-title" className="product-item-detail-title">{title}</span>

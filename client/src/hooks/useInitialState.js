@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 
 const useInitialState = (API) => {
-  console.log('url para get: ' + API)
+  const [loading, setLoading] = useState(true);
   const [ initialState, setInitialState ] = useState([]);
   useEffect(() => {
-    console.log("voy a hacer fetch: ", API)
     fetch(API)
     .then(response => response.json())
-    .then((data) => setInitialState(data))
+    .then((data) => {
+      setLoading(!loading);
+      setInitialState(data);
+    })
   }, [API]);
-  console.log("holaa desde hook ", initialState)
-  return initialState;
+  return { initialState, loading };
 }
 
 export default useInitialState;

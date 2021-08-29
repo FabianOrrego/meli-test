@@ -15,26 +15,29 @@ const product = {
   address: 'Manizales'
 };
 
-test('should render product component', () => {
-  render(<Product key={product.id} {...product}/>);
-  const component = screen.getByTestId('product-item');
-  expect(component).toBeInTheDocument();
+describe('Product Component', () => {
+  test('Should render product component', () => {
+    render(<Product key={product.id} {...product}/>);
+    const component = screen.getByTestId('product-item');
+    expect(component).toBeInTheDocument();
+  });
+  
+  test('Elements should have the correct values', () => {
+    render(<Product key={product.id} {...product}/>);
+    const title = screen.getByTestId('product-item-detail-title');
+    const amount = screen.getByTestId('product-item-detail-amount');
+    const address = screen.getByTestId('product-item-location');
+    expect(title.textContent).toEqual(product.title);
+    expect(amount.textContent).toEqual(product.price.amount);
+    expect(address.textContent).toEqual(product.address);
+  });
+  
+  test('When the component is clicked it should be redirect', () => {
+    const history = createMemoryHistory();
+    render(<Router history={history}><Product key={product.id} {...product} /></Router>);
+    const component = screen.getByTestId('product-item');
+    userEvent.click(component);
+    expect(history.location.pathname).toEqual(`/items/${product.id}`);
+  })
 });
 
-test('elements should have the correct values', () => {
-  render(<Product key={product.id} {...product}/>);
-  const title = screen.getByTestId('product-item-detail-title');
-  const amount = screen.getByTestId('product-item-detail-amount');
-  const address = screen.getByTestId('product-item-location');
-  expect(title.textContent).toEqual(product.title);
-  expect(amount.textContent).toEqual(product.price.amount);
-  expect(address.textContent).toEqual(product.address);
-});
-
-test('When the component is clicked it should be redirect', () => {
-  const history = createMemoryHistory();
-  render(<Router history={history}><Product key={product.id} {...product} /></Router>);
-  const component = screen.getByTestId('product-item');
-  userEvent.click(component);
-  expect(history.location.pathname).toEqual(`/items/${product.id}`);
-})

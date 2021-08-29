@@ -1,6 +1,7 @@
 import Home from './containers/Home/Home';
 import Products from './containers/Products/Products';
 import Detail from './containers/Detail/Detail';
+import NotFound from './containers/NotFound/NotFound';
 
 const routes = [
   {
@@ -17,9 +18,10 @@ const routes = [
     path: "/items/:id",
     component: Detail,
   },
-  /*{
-    component: NotFoundPage
-  }*/
+  {
+    path: "*",
+    component: NotFound
+  }
 ];
 
 export default routes;

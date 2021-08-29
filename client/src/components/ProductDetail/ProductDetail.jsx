@@ -2,7 +2,7 @@ import React from 'react';
 import numeral from 'numeral';
 import './ProductDetail.scss';
 
-const ProductDetail = ({ description, picture, title, price }) => (
+const ProductDetail = ({ description, picture, title, price, condition, sold_quantity }) => (
   <section className="product-container" data-testid="product-detail-component">
     <div className="product-detail">
       <div className="product-detail-main">
@@ -11,12 +11,12 @@ const ProductDetail = ({ description, picture, title, price }) => (
         </div>
         <div className="product-detail-main-general">
           <span className="product-detail-main-general-subtitle">
-            nuevo 234 - vendidos
+            { `${condition} - ${sold_quantity} vendidos` }  
           </span>
           <h3 data-testid="product-detail-main-general-title" className="product-detail-main-general-title">{title}</h3>
           <h2 
             className="product-detail-main-general-amount" data-testid="product-detail-main-general-amount">
-            {numeral(price.amount).format('$0,0.00')}
+            {numeral(price.amount).format('$ 0,0[.]00')}
           </h2>
           <button className="product-detail-main-general-button">Comprar</button>
         </div>

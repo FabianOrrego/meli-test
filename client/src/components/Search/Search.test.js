@@ -6,7 +6,8 @@ import { createMemoryHistory } from 'history';
 import Search from './Search';
 import './Search.scss';
 
-test('should render search component', () => {
+describe('Search Component', () => {
+  test('Should render search component', () => {
     render(<Search />);
     const component = screen.getByTestId('search');
     expect(component).toBeInTheDocument();
@@ -30,3 +31,4 @@ test('When submitting the form should redirect', () => {
   userEvent.click(button);
   expect(history.location.pathname).toEqual(`/items`);
 })
+});
