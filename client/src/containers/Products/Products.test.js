@@ -12,29 +12,52 @@ jest.mock('react-router-dom', () => ({
 jest.mock("../../hooks/useInitialState");
 
 describe('Products page', () => {
-  beforeEach(() => {
-    const data = {
-      items: [
-        {
-          id: 'testId',
-          price: { 
-            amount: '100000'
-          },
-          title: 'text title',
-          address: 'Manizales',
-          categories: ['cat1', 'cat2'],
-        }
-      ]
-    }
-    useInitialSate.mockImplementation(() => data);
+  describe('And initial state has a value', () => {
+    beforeEach(() => {
+      const data = {
+        initialState:{
+          items: [
+            {
+              id: 'testId',
+              price: { 
+                amount: '100000'
+              },
+              title: 'text title',
+              address: 'Manizales',
+              categories: ['cat1', 'cat2']
+            }
+          ],
+          categories: ['cat1', 'cat2']
+        },
+        loading: false
+      }
+      useInitialSate.mockImplementation(() => data);
+    });
+    test('Should render search component', () => {
+      render(<Products />);
+      const search = screen.getByTestId('search');
+      const breadcrumbs = screen.getByTestId('breadcrumbs');
+      const productList = screen.getByTestId('product-list');
+      expect(search).toBeInTheDocument();
+      expect(breadcrumbs).toBeInTheDocument();
+      expect(productList).toBeInTheDocument();
+    });
   });
-  test('Should render search component', () => {
-    render(<Products />);
-    const search = screen.getByTestId('search');
-    const breadcrumbs = screen.getByTestId('breadcrumbs');
-    const productList = screen.getByTestId('product-list');
-    expect(search).toBeInTheDocument();
-    expect(breadcrumbs).toBeInTheDocument();
-    expect(productList).toBeInTheDocument();
+  describe('And initial state return empty', () => {
+    beforeEach(() => {
+      const data = {
+        initialState:{
+          items: [],
+          categories: []
+        },
+        loading: true
+      }
+      useInitialSate.mockImplementation(() => data);
+    });
+    test('Should render search component', () => {
+      render(<Products />);
+      const notFoundSearch = screen.getByTestId('not-found-search');
+      expect(notFoundSearch).toBeInTheDocument();
+    });
   });
 });

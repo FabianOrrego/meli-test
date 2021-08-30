@@ -13,7 +13,7 @@ const Detail = () => {
   return (
     <>
       <Search />
-      {initialState?.item?.categories.length > 0 &&
+      {initialState?.item?.categories?.length > 0 &&
         <Breadcrumbs crumbsList={initialState.item.categories} />}
       {initialState?.item &&
         <ProductDetail key={initialState.item.id} {...initialState.item}/>}

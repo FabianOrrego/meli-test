@@ -1,29 +1,6 @@
-import axios from 'axios';
-
-const PRODUCTS_LIMIT = 4;
-
-const getListProducts = async (querySearch, res) => {
-  try {
-    const response = await axios.get(`${process.env.URL_API_ML}sites/MLA/search?q=${querySearch}&limit=${PRODUCTS_LIMIT}`);
-    res.json(setFormatProductsList(response.data));
-  } catch (error) {
-    res.send(error);
-  }
-}
-
-const getProduct = async (productId, res) => {
-  const response = await axios.all([
-    axios.get(`${process.env.URL_API_ML}items/${productId}`),
-    axios.get(`${process.env.URL_API_ML}items/${productId}/description`)
-  ]);
-  const responseCategories = await axios.get(`${process.env.URL_API_ML}categories/${response[0].data.category_id}`);
-  res.json(setFormatProductDetail(response, responseCategories.data.path_from_root));
-}
-
 const setFormatProductsList = (response) => {
   return {
-    author: getAuthor(),
-    categories: response?.filters?.length > 0 
+    categories: response?.filters?.length > 0
       ? getCategories((response?.filters?.find((filter) => filter?.id === 'category')).values[0].path_from_root)
       : [],
     items: response.results.map(item => formatItem(item))
@@ -32,7 +9,6 @@ const setFormatProductsList = (response) => {
 
 const setFormatProductDetail = (response, categories) => {
   return {
-    author: getAuthor(),
     item: {
       ...formatItem(response[0].data),
       sold_quantity: response[0].data.sold_quantity,
@@ -40,10 +16,6 @@ const setFormatProductDetail = (response, categories) => {
       categories: getCategories(categories)
     },
   }
-}
-
-const getAuthor = () => {
-  return { name: 'Fabian', lastname: 'Orrego' };
 }
 
 const getCategories = (categories) => {
@@ -66,4 +38,4 @@ const formatItem = (item) => {
   }
 }
 
-export { getListProducts, getProduct };
+export { setFormatProductsList, setFormatProductDetail };

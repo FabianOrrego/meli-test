@@ -1,0 +1,45 @@
+{
+  "name": "meli-test",
+  "version": "1.0.0",
+  "description": "Prueba tecnica FrontEnd Mercado Libre",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node server"
+  },
+  "keywords": [
+    "Products",
+    "Mercado",
+    "Libre"
+  ],
+  "author": "Fabian Orrego",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "jest": "^27.1.0",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./test/setupTests.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
+}

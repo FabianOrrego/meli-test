@@ -4,6 +4,7 @@ import { Router } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import Product from './Product';
+import numeral from 'numeral';
 import './Product.scss';
 
 const product = {
@@ -28,7 +29,7 @@ describe('Product Component', () => {
     const amount = screen.getByTestId('product-item-detail-amount');
     const address = screen.getByTestId('product-item-location');
     expect(title.textContent).toEqual(product.title);
-    expect(amount.textContent).toEqual(product.price.amount);
+    expect(amount.textContent).toEqual(numeral(product.price.amount).format('$ 0,0[.]00'));
     expect(address.textContent).toEqual(product.address);
   });
   

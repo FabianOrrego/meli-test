@@ -7,7 +7,7 @@ const useInitialState = (API) => {
     fetch(API)
     .then(response => response.json())
     .then((data) => {
-      setLoading(!loading);
+      setLoading(false);
       setInitialState(data);
     })
   }, [API]);

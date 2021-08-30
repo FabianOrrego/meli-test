@@ -15,20 +15,23 @@ jest.mock("../../hooks/useInitialState");
 describe('Detail page', () => {
   beforeEach(() => {
     const data = {
-      item: {
-        id: 'testId',
-        price: { 
-          amount: '100000'
+      initialState: {
+        item: {
+          id: 'testId',
+          price: { 
+            amount: '100000'
+          },
+          title: 'text title',
+          address: 'Manizales',
+          categories: ['cat1', 'cat2']
         },
-        title: 'text title',
-        address: 'Manizales',
-        categories: ['cat1', 'cat2'],
-      }
-    }
+      },
+      loading: false
+    };
     useInitialSate.mockImplementation(() => data);
   })
   
-  test('should render search component', async () => {
+  test.only('should render search component', async () => {
     render(<Detail />);
     const search = screen.getByTestId('search');
     const breadcrumbs = screen.getByTestId('breadcrumbs');
