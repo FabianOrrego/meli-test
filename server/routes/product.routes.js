@@ -5,6 +5,9 @@ import {FIVE_MINUTES} from '../utils/time';
 
 const router = express.Router();
 
+/**
+ * Route for get list products
+ */
 router.get('/items', async (req, res) => {
   cacheResponse(res, FIVE_MINUTES);
   const search = req.query.search;
@@ -13,6 +16,9 @@ router.get('/items', async (req, res) => {
     : res.status(400).send({ error: 'El campo de busqueda es requerido' });
 });
 
+/**
+ * Route for get detail product
+ */
 router.get('/items/:id', async (req, res) => {
   cacheResponse(res, FIVE_MINUTES);
   const productId = req.params.id;

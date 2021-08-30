@@ -3,6 +3,12 @@ import * as ProductTransformer from '../transformers/product_transformer';
 
 const PRODUCTS_LIMIT = 4;
 
+/**
+ * 
+ * @param {*} querySearch 
+ * @param {*} res 
+ * Get the list product in the expected format
+ */
 const getListProducts = async (querySearch, res) => {
   try {
     const response = await axios.get(`${process.env.URL_API_ML}sites/MLA/search?q=${querySearch}&limit=${PRODUCTS_LIMIT}`);
@@ -12,6 +18,12 @@ const getListProducts = async (querySearch, res) => {
   }
 }
 
+/**
+ * 
+ * @param {*} productId 
+ * @param {*} res 
+ * Get detail product in the expected format
+ */
 const getProduct = async (productId, res) => {
   const response = await axios.all([
     axios.get(`${process.env.URL_API_ML}items/${productId}`),

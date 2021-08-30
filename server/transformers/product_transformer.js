@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {*} response 
+ * @returns 
+ * Transform product list response to the expected format 
+ */
 const setFormatProductsList = (response) => {
   return {
     categories: response?.filters?.length > 0
@@ -7,6 +13,13 @@ const setFormatProductsList = (response) => {
   }
 }
 
+/**
+ * 
+ * @param {*} response 
+ * @param {*} categories 
+ * @returns 
+ * Transform detail product response to the expected format 
+ */
 const setFormatProductDetail = (response, categories) => {
   return {
     item: {
@@ -18,10 +31,22 @@ const setFormatProductDetail = (response, categories) => {
   }
 }
 
+/**
+ * 
+ * @param {*} categories 
+ * @returns 
+ * get categories
+ */
 const getCategories = (categories) => {
   return categories.map((category) => category.name);;
 }
 
+/**
+ * 
+ * @param {*} item 
+ * @returns 
+ * Format to product
+ */
 const formatItem = (item) => {
   return {
     id: item.id,

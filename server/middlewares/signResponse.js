@@ -1,3 +1,10 @@
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * Customer moddlewar for add signature to responses
+ */
 const signResponse = (req, res, next) => {
   const oldSend = res.send;
   res.send = function (data) {
