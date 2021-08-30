@@ -6,10 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node server",
-    "build": "webpack-cli --config webpack.config.js",
-    "cover": "nyc npm run test",
-    "report": "nyc report --reporter=html && open coverage/index.html"
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node server"
   },
   "keywords": [
     "Products",

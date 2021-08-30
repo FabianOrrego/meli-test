@@ -28,4 +28,3 @@ Para ejecutar los test unitarios use el comando `npm test` y adicione el flag --
 ## Generar archivos optimizados para producción
 
 Para generar los archivos para producción use el comando `npm run build` en la carpeta client
-y `npm run build` en la carpeta server
