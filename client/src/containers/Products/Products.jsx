@@ -11,7 +11,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 const Products = () => {
   const query = new URLSearchParams(useLocation().search);
   const API = `${process.env.REACT_APP_HOST_API}items?search=${query.get("search")}`;
-  const  { initialState, loading } = useInitialSate(API);
+  const { initialState, loading } = useInitialSate(API);
   return (
     <>
       <Search />

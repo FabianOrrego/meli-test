@@ -9,7 +9,7 @@ const ProductDetail = ({ description, picture, title, price, condition, sold_qua
         <div className="product-detail-main-image">
           <img src={picture} alt="product" />
         </div>
-        <div className="product-detail-main-general">
+        <main className="product-detail-main-general">
           <span className="product-detail-main-general-subtitle">
             { `${condition} - ${sold_quantity} vendidos` }  
           </span>
@@ -19,7 +19,7 @@ const ProductDetail = ({ description, picture, title, price, condition, sold_qua
             {numeral(price.amount).format('$ 0,0[.]00')}
           </h2>
           <button className="product-detail-main-general-button">Comprar</button>
-        </div>
+        </main>
       </div>
       <div className="product-detail-description">
         <h3 data-testid="product-detail-description">Descripción del producto</h3>

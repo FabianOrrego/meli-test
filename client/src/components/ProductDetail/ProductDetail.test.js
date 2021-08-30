@@ -29,7 +29,7 @@ describe('ProductDetail Component', () => {
     const amount = screen.getByTestId('product-detail-main-general-amount');
     expect(description.textContent).toEqual(productDetail.item.description);
     expect(title.textContent).toEqual(productDetail.item.title);
-    expect(amount.textContent).toEqual(numeral(productDetail.item.price.amount).format('$0,0.00'));
+    expect(amount.textContent).toEqual(numeral(productDetail.item.price.amount).format('$ 0,0[.]00'));
   });
 });
 

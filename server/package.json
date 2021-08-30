@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node server"
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node server",
+    "build": "webpack-cli --config webpack.config.js"
   },
   "keywords": [
     "Products",
@@ -19,9 +20,14 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "helmet": "^4.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.12",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
   }
 }

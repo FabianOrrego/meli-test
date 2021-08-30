@@ -1,6 +1,5 @@
 const setFormatProductsList = (response) => {
   return {
-    author: getAuthor(),
     categories: response?.filters?.length > 0
       ? getCategories((response?.filters?.find((filter) => filter?.id === 'category')).values[0].path_from_root)
       : [],
@@ -10,7 +9,6 @@ const setFormatProductsList = (response) => {
 
 const setFormatProductDetail = (response, categories) => {
   return {
-    author: getAuthor(),
     item: {
       ...formatItem(response[0].data),
       sold_quantity: response[0].data.sold_quantity,
@@ -18,10 +16,6 @@ const setFormatProductDetail = (response, categories) => {
       categories: getCategories(categories)
     },
   }
-}
-
-const getAuthor = () => {
-  return { name: 'Fabian', lastname: 'Orrego' };
 }
 
 const getCategories = (categories) => {

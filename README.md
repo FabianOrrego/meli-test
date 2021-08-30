@@ -21,3 +21,11 @@
     - ejecute el comando `npm install` para instalar dependencias del cliente
     - ejecute el comando `npm start` para iniciar el cliente
 4. Use su navegador de preferencia para acceder a la ruta http://localhost:3000/ donde verá la aplicación
+## Test unitarios
+
+Para ejecutar los test unitarios use el comando `npm test` y adicione el flag --coverage en caso de que quiera generar el reporte de covertura.
+
+## Generar archivos optimizados para producción
+
+Para generar los archivos para producción use el comando `npm run build` en la carpeta client
+y `npm run build` en la carpeta server
