@@ -5,9 +5,11 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon --experimental-modules --es-module-specifier-resolution=node server",
-    "build": "webpack-cli --config webpack.config.js"
+    "build": "webpack-cli --config webpack.config.js",
+    "cover": "nyc npm run test",
+    "report": "nyc report --reporter=html && open coverage/index.html"
   },
   "keywords": [
     "Products",
@@ -24,10 +26,23 @@
     "helmet": "^4.6.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.15.0",
     "babel-loader": "^8.2.2",
+    "jest": "^27.1.0",
     "nodemon": "^2.0.12",
+    "supertest": "^6.1.6",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./test/setupTests.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

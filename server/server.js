@@ -10,8 +10,7 @@ const app = express();
 const { PORT, HOST, ENV } = process.env;
 
 if (ENV !== 'development') {
-  console.log("entre a prod");
-  app.use(express.static(`./public`));
+  app.use(express.static(`../client/public`));
   app.use(helmet());
   app.use(helmet.permittedCrossDomainPolicies());
   app.disable('x-powered-by');
